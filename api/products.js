@@ -39,9 +39,10 @@ const getProductByReference = async (reference_product) => {
 }
 
 
-const updateProduct = async (obj, prestashop_xml) => {
+const updateProduct = async (obj) => {
     try {
 
+        let prestashop_xml = await getProduct(obj.id["#text"]);
         let prestashop_obj = builder.convert(prestashop_xml, { format: "object" });
 
         // remplacement des anciennes valeurs par les nouvelles (TODO : adapter pour les catégories et autres valeurs multiples)

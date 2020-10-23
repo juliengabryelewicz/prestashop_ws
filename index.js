@@ -4,7 +4,7 @@ const Product = require("./api/products");
 const Stock = require("./api/stocks");
 const xmlBuilder = require("./services/xmlBuilder");
 
-const obj = {"id": {"#text": "201"}, "name":{"#text": "ceci est un test"}};
+const obj = {"id": {"#text": "201"}, "name":{"#text": "ceci est un test2"}};
 
 
 async function run() {
@@ -14,8 +14,9 @@ async function run() {
     console.log(data2);*/
     //const data = await Stock.getStocksProductAttribute(1482);
     //const data = await Stock.updateQuantityProductAttribute(1364, 20);
-    const data = await Product.getProduct(201);
-    console.log(data);
+    //const data = await Product.getProduct(201);
+    //const data = await Product.updateProduct(obj);
+    //console.log(data);
 }
   
 run();
