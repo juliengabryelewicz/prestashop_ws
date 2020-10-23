@@ -1,4 +1,6 @@
 const Language = require("./api/languages");
+const Product = require("./api/products");
+const Category = require("./api/categories");
 
 async function run() {
     const data = await Language.getLanguage("1");
