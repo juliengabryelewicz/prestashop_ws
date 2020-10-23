@@ -1,8 +1,8 @@
 const {axios_prestashop} = require('../services/axiosPrestashop')
 
-const getProduct = async (id_category) => {
+const getProduct = async (id_product) => {
     try {
-        return await axios_prestashop.get(`productss/${id_category}`)
+        return await axios_prestashop.get(`products/${id_product}`)
         .then(function (response) {
             return response.data;
         })
