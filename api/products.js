@@ -11,7 +11,7 @@ const getProduct = async (id_product) => {
     }
 }
 
-const getAllProducts = async (id_language) => {
+const getAllProducts = async () => {
 
     try {
         return await axios_prestashop.get(`products`)

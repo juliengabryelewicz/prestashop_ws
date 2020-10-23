@@ -11,7 +11,7 @@ const getCategory = async (id_category) => {
     }
 }
 
-const getAllCategories = async (id_language) => {
+const getAllCategories = async () => {
 
     try {
         return await axios_prestashop.get(`categories`)
