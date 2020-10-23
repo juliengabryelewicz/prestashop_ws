@@ -16,6 +16,17 @@ const getProduct = async (id_product) => {
     }
 }
 
+const getProductsByName = async (name_product) => {
+    try {
+        return await axios_prestashop.get(`products/?filter[name]=[${name_product}]`)
+        .then(function (response) {
+            return response.data;
+        })
+    } catch(err) {
+        throw err
+    }
+}
+
 
 const updateProduct = async (obj, prestashop_xml) => {
     try {
@@ -57,5 +68,6 @@ const getAllProducts = async () => {
 module.exports = {
     getAllProducts,
     getProduct,
+    getProductsByName,
     updateProduct
 }

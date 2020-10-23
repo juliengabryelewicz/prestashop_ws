@@ -11,7 +11,7 @@ const getCategory = async (id_category) => {
     }
 }
 
-const getCategoryByName = async (name_category) => {
+const getCategoriesByName = async (name_category) => {
     try {
         return await axios_prestashop.get(`categories/?filter[name]=[${name_category}]`)
         .then(function (response) {
@@ -38,5 +38,5 @@ const getAllCategories = async () => {
 module.exports = {
     getAllCategories,
     getCategory,
-    getCategoryByName
+    getCategoriesByName
 }
