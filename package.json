@@ -1,0 +1,16 @@
+{
+  "name": "prestashop_ws",
+  "version": "1.0.0",
+  "description": "Node module which allows you to communicate with PrestaShop (1.6 & 1.7) via webservices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julien Gabryelewicz",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
+    "path": "^0.12.7"
+  }
+}
