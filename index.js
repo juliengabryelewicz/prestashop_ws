@@ -12,8 +12,9 @@ async function run() {
     /*const data = await Product.getProduct(201);
     const data2 = await Product.updateProduct(obj, data);
     console.log(data2);*/
-    const data = await Stock.getStocksProductAttribute(1482);
-    console.log(data);
+    //const data = await Stock.getStocksProductAttribute(1482);
+    //const data = await Stock.updateQuantityProductAttribute(1364, 20);
+    //console.log(data);
 }
   
 run();

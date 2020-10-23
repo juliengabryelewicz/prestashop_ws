@@ -21,6 +21,27 @@ const getStocksProductAttribute = async (id_product_attribute) => {
     }
 }
 
+const updateQuantityProductAttribute = async (id_product_attribute, quantity) => {
+    try {
+        
+        let detail_stock_available_xml = await getStocksProductAttribute(id_product_attribute);
+        let detail_stock_available_obj = builder.convert(detail_stock_available_xml, { format: "object" });
+        
+        detail_stock_available_obj.prestashop.stock_available.quantity = quantity; 
+
+        detail_stock_available_xml = builder.create(detail_stock_available_obj).end();
+
+        return await axios_prestashop.put(`stock_availables`,detail_stock_available_xml, headerXml)
+        .then(async function (response) {
+            return response.data;
+        })
+    } catch(err) {
+        console.log(err);
+        throw err
+    }
+}
+
 module.exports = {
-    getStocksProductAttribute
+    getStocksProductAttribute,
+    updateQuantityProductAttribute
 }

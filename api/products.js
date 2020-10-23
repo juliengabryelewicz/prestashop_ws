@@ -27,6 +27,17 @@ const getProductsByName = async (name_product) => {
     }
 }
 
+const getProductByReference = async (reference_product) => {
+    try {
+        return await axios_prestashop.get(`products/?filter[reference]=[${reference_product}]`)
+        .then(function (response) {
+            return response.data;
+        })
+    } catch(err) {
+        throw err
+    }
+}
+
 
 const updateProduct = async (obj, prestashop_xml) => {
     try {
@@ -69,5 +80,6 @@ module.exports = {
     getAllProducts,
     getProduct,
     getProductsByName,
+    getProductByReference,
     updateProduct
 }
