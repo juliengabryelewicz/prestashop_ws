@@ -1,9 +1,31 @@
 const {axios_prestashop} = require('../services/axiosPrestashop')
 const builder = require('xmlbuilder2');
+const {productSchema} = require("../schema/product")
 
 const headerXml =  {
     headers: {'Content-Type': 'application/xml'}
 };
+
+const createProduct = async (obj) => {
+    try {
+
+        let prestashop_obj = builder.convert(productSchema, { format: "object" });
+
+        for (var key in obj){
+            prestashop_obj.prestashop.product[key] = obj[key];
+        }
+
+        let xmlSend = builder.create(prestashop_obj).end();
+        return await axios_prestashop.post(`products`,xmlSend, headerXml)
+        .then(function (response) {
+            return response.data;
+        })
+    } catch(err) {
+        console.log(err)
+        throw err
+    }
+}
+
 
 const getProduct = async (id_product) => {
     try {
@@ -78,6 +100,7 @@ const getAllProducts = async () => {
 }
 
 module.exports = {
+    createProduct,
     getAllProducts,
     getProduct,
     getProductsByName,
