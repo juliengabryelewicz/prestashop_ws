@@ -12,7 +12,6 @@
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "path": "^0.12.7",
-    "xmlbuilder": "^15.1.1",
     "xmlbuilder2": "^2.4.0"
   }
 }
