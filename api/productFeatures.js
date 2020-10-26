@@ -13,7 +13,7 @@ const getProductFeature = async (id_product_feature) => {
 
 const getProductsFeatureByName = async (name_product_feature) => {
     try {
-        return await axios_prestashop.get(`product_features/?filter[name]=[${name_product_feature}]`)
+        return await axios_prestashop.get(`product_features/?display=full&filter[name]=[${name_product_feature}]`)
         .then(function (response) {
             return response.data;
         })

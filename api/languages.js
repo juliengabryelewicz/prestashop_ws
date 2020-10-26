@@ -14,7 +14,7 @@ const getLanguage = async (id_language) => {
 const getAllLanguages = async () => {
 
     try {
-        return await axios_prestashop.get(`languages`)
+        return await axios_prestashop.get(`languages?display=full`)
         .then(function (response) {
             return response.data;
         })

@@ -13,7 +13,7 @@ const getCategory = async (id_category) => {
 
 const getCategoriesByName = async (name_category) => {
     try {
-        return await axios_prestashop.get(`categories/?filter[name]=[${name_category}]`)
+        return await axios_prestashop.get(`categories/?display=full&filter[name]=[${name_category}]`)
         .then(function (response) {
             return response.data;
         })
@@ -25,7 +25,7 @@ const getCategoriesByName = async (name_category) => {
 const getAllCategories = async () => {
 
     try {
-        return await axios_prestashop.get(`categories`)
+        return await axios_prestashop.get(`categories?display=full`)
         .then(function (response) {
             return response.data;
         })

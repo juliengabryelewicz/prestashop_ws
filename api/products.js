@@ -38,7 +38,7 @@ const getProduct = async (id_product) => {
 
 const getProductsByName = async (name_product) => {
     try {
-        return await axios_prestashop.get(`products/?filter[name]=[${name_product}]`)
+        return await axios_prestashop.get(`products/?display=full&filter[name]=[${name_product}]`)
         .then(function (response) {
             return response.data;
         })
@@ -49,7 +49,7 @@ const getProductsByName = async (name_product) => {
 
 const getProductByReference = async (reference_product) => {
     try {
-        return await axios_prestashop.get(`products/?filter[reference]=[${reference_product}]`)
+        return await axios_prestashop.get(`products/?display=full&filter[reference]=[${reference_product}]`)
         .then(function (response) {
             return response.data;
         })
@@ -87,7 +87,7 @@ const updateProduct = async (obj) => {
 const getAllProducts = async () => {
 
     try {
-        return await axios_prestashop.get(`products`)
+        return await axios_prestashop.get(`products?display=full`)
         .then(function (response) {
             return response.data;
         })
