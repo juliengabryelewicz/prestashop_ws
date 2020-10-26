@@ -2,20 +2,22 @@ const {axios_prestashop} = require('../services/axiosPrestashop')
 const {headerXml} = require('../services/config')
 const builder = require('xmlbuilder2');
 const {productSchema} = require("../schema/product")
-const {checkIfShopExists} = require("../services/helper")
+const {checkIfShopExists, urlIfShopExists} = require("../services/helper")
 
 
-const createProduct = async (obj) => {
+const createProduct = async (obj, id_shop="") => {
     try {
 
         let prestashop_obj = builder.convert(productSchema, { format: "object" });
+
+        let url_id_shop = urlIfShopExists(id_shop);
 
         for (var key in obj){
             prestashop_obj.prestashop.product[key] = obj[key];
         }
 
         let xmlSend = builder.create(prestashop_obj).end();
-        return await axios_prestashop.post(`products`,xmlSend, headerXml)
+        return await axios_prestashop.post(`products${url_id_shop}`,xmlSend, headerXml)
         .then(function (response) {
             return response.data;
         })

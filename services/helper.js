@@ -4,4 +4,10 @@ const checkIfShopExists = (id_shop) => {
 
 }
 
-module.exports = { checkIfShopExists }
+const urlIfShopExists = (id_shop) => {
+
+    return id_shop == "" ? "" : "?id_shop="+id_shop
+
+}
+
+module.exports = { checkIfShopExists, urlIfShopExists }
