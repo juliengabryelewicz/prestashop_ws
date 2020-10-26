@@ -53,11 +53,11 @@ If you want to use webservice for other resources (shops, CMS..), you can use th
 ```
 const prestashopWs = require("prestashop_ws");
 
-const data = await prestashopWs.get("content_management_system/2", {}); // GET
-const data = await prestashopWs.head("content_management_system/2", {}); // HEAD
-const data = await prestashopWs.remove("content_management_system/2", {}); //DELETE
-const data = await prestashopWs.post("content_management_system", "<your-xml>"); //POST
-const data = await prestashopWs.put("content_management_system", "<your-xml>"); //PUT
+const dataGet = await prestashopWs.get("content_management_system/2", {}); // GET
+const dataHead = await prestashopWs.head("content_management_system/2", {}); // HEAD
+const dataDelete = await prestashopWs.remove("content_management_system/2", {}); //DELETE
+const dataPost = await prestashopWs.post("content_management_system", "<your-xml>"); //POST
+const dataPut = await prestashopWs.put("content_management_system", "<your-xml>"); //PUT
 
 ```
 
