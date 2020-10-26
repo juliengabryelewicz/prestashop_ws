@@ -1,0 +1,3 @@
+const stockAvailableSchema = '<prestashop xmlns:xlink="http://www.w3.org/1999/xlink"><stock_available><id><![CDATA[]]></id><id_product><![CDATA[]]></id_product><id_product_attribute><![CDATA[]]></id_product_attribute><id_shop><![CDATA[]]></id_shop><id_shop_group><![CDATA[]]></id_shop_group><quantity><![CDATA[]]></quantity><depends_on_stock><![CDATA[]]></depends_on_stock><out_of_stock><![CDATA[]]></out_of_stock><location><![CDATA[]]></location></stock_available></prestashop>';
+
+module.exports = { stockAvailableSchema }
