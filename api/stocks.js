@@ -1,9 +1,6 @@
 const {axios_prestashop} = require('../services/axiosPrestashop')
+const {headerXml} = require('../services/config')
 const builder = require('xmlbuilder2');
-
-const headerXml =  {
-    headers: {'Content-Type': 'application/xml'}
-};
 
 const getStocksProductAttribute = async (id_product_attribute) => {
     try {
