@@ -3,6 +3,17 @@ const {headerXml} = require('../services/config')
 const builder = require('xmlbuilder2');
 const {stockAvailableSchema} = require("../schema/stock_available")
 
+const getStocksProduct = async (id_product) => {
+    try {
+        return await axios_prestashop.get(`stock_availables/?display=full&filter[id_product]=[${id_product}]`)
+        .then(async function (response) {
+            return response.data;
+        })
+    } catch(err) {
+        throw err
+    }
+}
+
 const getStocksProductAttribute = async (id_product_attribute) => {
     try {
         return await axios_prestashop.get(`stock_availables/?display=full&filter[id_product_attribute]=[${id_product_attribute}]`)
@@ -37,6 +48,7 @@ const updateQuantityProductAttribute = async (id_product_attribute, quantity) =>
 }
 
 module.exports = {
+    getStocksProduct,
     getStocksProductAttribute,
     updateQuantityProductAttribute
 }
