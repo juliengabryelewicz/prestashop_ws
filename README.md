@@ -1,6 +1,6 @@
-# Prestashop Web Service Node Module (Alpha version)
+# Prestashop Web Service Node Module
 
-Node module which allows you to connect with PrestaShop via Webservice (WORK IN PROGRESS)
+Node module which allows you to connect with PrestaShop via Webservice
 
 ## How to install 
 
