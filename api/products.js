@@ -9,7 +9,6 @@ const createProduct = async (obj, id_shop="") => {
     try {
 
         let prestashop_obj = builder.convert(productSchema, { format: "object" });
-
         let url_id_shop = urlIfShopExists(id_shop);
 
         for (var key in obj){
@@ -86,11 +85,12 @@ const getProductByReference = async (reference_product, id_shop="") => {
 }
 
 
-const updateProduct = async (obj) => {
+const updateProduct = async (obj, id_shop="") => {
     try {
 
         let prestashop_xml = await getProduct(obj.id["#text"]);
         let prestashop_obj = builder.convert(prestashop_xml, { format: "object" });
+        let url_id_shop = urlIfShopExists(id_shop);
 
         // remplacement des anciennes valeurs par les nouvelles (TODO : adapter pour les catégories et autres valeurs multiples)
         for(key in obj) {
@@ -101,7 +101,7 @@ const updateProduct = async (obj) => {
         delete prestashop_obj.prestashop.product.quantity;
 
         let xmlSend = builder.create(prestashop_obj).end();
-        return await axios_prestashop.put(`products`,xmlSend, headerXml)
+        return await axios_prestashop.put(`products${url_id_shop}`,xmlSend, headerXml)
         .then(function (response) {
             return response.data;
         })
