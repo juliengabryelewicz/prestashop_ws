@@ -36,24 +36,26 @@ const put = async (endpoint, xmlSend) => {
     }
 }
 
-const remove = async (endpoint, xmlSend) => {
+const remove = async (endpoint, params) => {
     try {
-        return await axios_prestashop.delete(endpoint, xmlSend, headerXml)
+        return await axios_prestashop.delete(endpoint, {
+            params: params
+          })
         .then(function (response) {
-            return response.data;
+            return response;
         })
     } catch(err) {
         throw err
     }
 }
 
-const head = async (endpoint, xmlSend) => {
+const head = async (endpoint, params) => {
     try {
         return await axios_prestashop.head(endpoint, {
             params: params
           })
         .then(function (response) {
-            return response.data;
+            return response;
         })
     } catch(err) {
         throw err
