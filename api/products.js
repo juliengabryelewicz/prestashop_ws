@@ -2,6 +2,7 @@ const {axios_prestashop} = require('../services/axiosPrestashop')
 const {headerXml} = require('../services/config')
 const builder = require('xmlbuilder2');
 const {productSchema} = require("../schema/product")
+const {checkIfShopExists} = require("../services/helper")
 
 
 const createProduct = async (obj) => {
@@ -36,13 +37,20 @@ const getProduct = async (id_product) => {
     }
 }
 
-const getProductsByName = async (name_product) => {
+const getProductsByName = async (name_product, id_shop="") => {
     try {
+
+        let params = {
+            "display": "full",
+            "filter[name]" : `[${name_product}]`
+          }
+
+        if(checkIfShopExists(id_shop)){
+            params.id_shop=id_shop
+        }
+
         return await axios_prestashop.get(`products`, {
-            params: {
-              "display": "full",
-              "filter[name]" : `[${name_product}]`
-            }
+            params: params
           })
         .then(function (response) {
             return response.data;
@@ -52,13 +60,20 @@ const getProductsByName = async (name_product) => {
     }
 }
 
-const getProductByReference = async (reference_product) => {
+const getProductByReference = async (reference_product, id_shop="") => {
     try {
+
+        let params = {
+            "display": "full",
+            "filter[reference]" : `[${reference_product}]`
+          }
+
+        if(checkIfShopExists(id_shop)){
+            params.id_shop=id_shop
+        }
+
         return await axios_prestashop.get(`products`, {
-            params: {
-              "display": "full",
-              "filter[reference]" : `[${reference_product}]`
-            }
+            params: params
           })
         .then(function (response) {
             return response.data;
