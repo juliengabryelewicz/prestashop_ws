@@ -5,7 +5,12 @@ const {stockAvailableSchema} = require("../schema/stock_available")
 
 const getStocksProduct = async (id_product) => {
     try {
-        return await axios_prestashop.get(`stock_availables/?display=full&filter[id_product]=[${id_product}]`)
+        return await axios_prestashop.get(`stock_availables`, {
+            params: {
+              "display": "full",
+              "filter[id_product]" : `[${id_product}]`
+            }
+          })
         .then(async function (response) {
             return response.data;
         })
@@ -16,7 +21,12 @@ const getStocksProduct = async (id_product) => {
 
 const getStocksProductAttribute = async (id_product_attribute) => {
     try {
-        return await axios_prestashop.get(`stock_availables/?display=full&filter[id_product_attribute]=[${id_product_attribute}]`)
+        return await axios_prestashop.get(`stock_availables`, {
+            params: {
+              "display": "full",
+              "filter[id_product_attribute]" : `[${id_product_attribute}]`
+            }
+          })
         .then(async function (response) {
             return response.data;
         })
