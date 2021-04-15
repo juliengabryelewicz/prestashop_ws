@@ -1,5 +1,12 @@
 # Prestashop Web Service Node Module
 
+DEPRECATED : Please use "prestashop_ws2" instead : 
+
+https://www.npmjs.com/package/prestashop_ws2
+
+https://github.com/juliengabryelewicz/prestashop_ws2
+
+
 Node module which allows you to connect with PrestaShop via Webservice
 
 ## How to install 
